@@ -1,0 +1,400 @@
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  line-height: 1.8;
+  background-color: #fff;
+}
+.ftco-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s ease-out;
+}
+.ftco-animate.active {
+      opacity: 1;
+      transform: translateY(0);
+}
+.hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+  .footer-section {
+    position: relative;
+    background: linear-gradient(135deg, #3a2512 0%, #6f4e37 100%);
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    font-family: "Dana", sans-serif;
+  }
+
+  .footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    color: var(--secondary-color);
+  }
+
+  .footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+  }
+
+  .footer-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .footer-links .footer-link {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .footer-links .footer-link:hover {
+    color: var(--secondary-color);
+    padding-right: 8px;
+  }
+
+  .footer-hours li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+  }
+
+  .footer-hours b {
+    color: white;
+    font-weight: 600;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+  }
+
+  .social-icon:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px) rotate(10deg);
+    color: var(--text-dark);
+  }
+
+  .footer-newsletter .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    height: 45px;
+  }
+
+  .footer-newsletter .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .btn-newsletter {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    border: none;
+    width: 45px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+  }
+
+  .btn-newsletter:hover {
+    background: white;
+    transform: scale(1.1);
+  }
+
+  .footer-legal-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+
+  .footer-legal-link:hover {
+    color: var(--secondary-color);
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+    bottom: 30px;
+  }
+
+  .back-to-top:hover {
+    background: white;
+    transform: translateY(-5px);
+  }
+
+  /* انیمیشن‌های اختصاصی */
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  .footer-logo:hover span {
+    animation: float 2s ease-in-out infinite;
+  }
+    :root {
+      --secondary-color: #f4c16e;
+      --text-dark: #2d2d2d;
+    }
+
+    body {
+      font-family: 'Dana', sans-serif;
+      background: #fffaf3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .welcome-message {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #6f4e37 0%, #3a2512 100%);
+      color: white;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 350px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.5s ease;
+      border: 2px solid var(--secondary-color);
+      font-family: "Dana", sans-serif;
+      display: none;
+    }
+
+    .welcome-message.active {
+      transform: translateY(0);
+      opacity: 1;
+      display: block;
+    }
+
+    .welcome-content {
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      background: #e63946;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn:hover {
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    .welcome-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .welcome-title {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      text-align: center;
+      color: var(--secondary-color);
+    }
+
+    .welcome-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .welcome-btn {
+      display: block;
+      background: var(--secondary-color);
+      color: var(--text-dark);
+      text-align: center;
+      padding: 10px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .welcome-btn:hover {
+      background: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(196, 164, 132, 0.4);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .welcome-icon i {
+      animation: pulse 2s infinite;
+    }
+
+    @media (max-width: 768px) {
+      .welcome-message {
+        max-width: 90%;
+        right: 5%;
+        bottom: 20px;
+      }
+    }
+    /* استایل نوبار عمودی */
+.vertical-navbar {
+  position: fixed;
+  top: 50%;
+  right: -100px; /* ابتدا خارج از صفحه */
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #3a2512 0%, #6f4e37 100%);
+  border-radius: 15px 0 0 15px;
+  padding: 15px 5px;
+  box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  opacity: 0;
+}
+
+.vertical-navbar.active {
+  right: 0;
+  opacity: 1;
+}
+
+.vertical-navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vertical-navbar li {
+  margin: 15px 0;
+  position: relative;
+}
+
+.vertical-nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50px 0 0 50px;
+  transition: all 0.3s;
+}
+
+.vertical-nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding-right: 20px;
+}
+
+.vertical-nav-link i {
+  font-size: 1.2rem;
+  width: 30px;
+  text-align: center;
+}
+
+.vertical-nav-link span {
+  margin-right: 10px;
+  font-family: "Dana", sans-serif;
+  font-size: 0.9rem;
+  display: none; /* در حالت عادی مخفی */
+}
+
+.vertical-nav-link:hover span {
+  display: inline; /* هنگام hover نمایش داده شود */
+}
+
+.vertical-nav-link.order-btn {
+  background: var(--secondary-color);
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.vertical-nav-link.order-btn:hover {
+  background: white;
+}
+
+/* نسخه موبایل */
+@media (max-width: 768px) {
+  .vertical-navbar {
+    top: auto;
+    bottom: 20px;
+    right: -80px;
+    transform: none;
+    border-radius: 15px;
+    padding: 5px;
+  }
+  
+  .vertical-navbar.active {
+    right: 10px;
+  }
+  
+  .vertical-nav-link span {
+    display: none !important; /* در موبایل همیشه مخفی */
+  }
+}
