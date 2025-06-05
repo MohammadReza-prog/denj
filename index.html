@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>کافه‌ گلدون - منوی دیجیتال</title>
+  <title>کافه‌ دنج - منوی دیجیتال</title>
   
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -20,7 +20,6 @@
   <!-- آیکن‌های فونت آسام -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="script.js">
 
   <!-- استایل شخصی -->
   <style>
@@ -93,14 +92,6 @@
       position: relative;
       padding-left: 50px;
     }
-    
-    /* .navbar-brand-goldoon::before {
-      content: "☕";
-      position: absolute;
-      right: -30px;
-      font-size: 1.5rem;
-      transition: all 0.3s;
-    } */
     
     .navbar-brand-goldoon:hover::before {
       transform: rotate(15deg) scale(1.2);
@@ -207,7 +198,7 @@
     
     /* دکمه سفارش آنلاین */
     .order-btn-goldoon {
-      background: linear-gradient(135deg, var(--secondary-color) 0%, #d4b692 100%);
+      /* background: linear-gradient(135deg, var(--secondary-color) 0%, #d4b692 100%); */
       color: var(--text-dark) !important;
       border: none;
       border-radius: 50px;
@@ -228,6 +219,7 @@
     .cart-icon-goldoon {
       position: relative;
       margin-right: 15px;
+      
     }
     
     .cart-badge-goldoon {
@@ -272,8 +264,8 @@
     }
     
     .search-container {
-      max-width: 800px;
-      margin: 30px auto 40px;
+      max-width: 1200px;
+      margin: 30px auto 20px;
       position: relative;
     }
     
@@ -304,54 +296,121 @@
       font-size: 1.2rem;
     }
     
-    .category-tabs {
+    /* استایل جدید برای تب‌های عمودی */
+    .category-tabs-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
+      flex-direction: row-reverse;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
     }
     
-    .category-tabs button {
-      padding: 12px 25px;
+    .category-tabs-vertical {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      flex-shrink: 0;
+      gap: 10px;
+      position: sticky;
+      top: calc(var(--navbar-height) + 20px);
+      align-self: flex-start;
+    }
+    
+    .category-tabs-vertical button {
+      padding: 12px 20px;
       border: 2px solid var(--input-border);
       background: transparent;
       color: var(--text-color);
       font-weight: 700;
-      border-radius: 50px;
+      border-radius: 10px;
       transition: all 0.3s;
       cursor: pointer;
+      text-align: right;
+      width: 100%;
     }
     
-    .category-tabs button.active,
-    .category-tabs button:hover {
+    .category-tabs-vertical button.active,
+    .category-tabs-vertical button:hover {
       background: var(--primary-color);
       color: white;
       border-color: var(--primary-color);
-      transform: translateY(-3px);
+      transform: translateX(-5px);
       box-shadow: 0 5px 15px rgba(111,78,55,0.2);
     }
     
+    /* استایل جدید برای فیلتر قیمت */
+    .price-filter {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid var(--input-border);
+    }
+    
+    .price-filter h4 {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    
+    .price-filter input {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    .price-filter button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* استایل جدید برای آیتم‌های منو */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 0 20px;
-      max-width: 1200px;
-      margin: 0 auto 50px;
+      gap: 20px;
+      width: 100p;
+      flex-grow: 1;
     }
     
-    .menu-item {
-      background: var(--card-bg);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-      position: relative;
-      border: 1px solid var(--input-border);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.6s ease-out forwards;
+    /* حذف بخش مربوط به single-item از CSS */
+.menu-item {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  position: relative;
+  border: 1px solid var(--input-border);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+  /* اندازه ثابت برای همه آیتم‌ها */
+  width: 100%;
+  height: 400px;
+  max-width: 300px; /* اندازه نرمال */
+  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* حذف کلاس .single-item */
+    
+    /* استایل برای وقتی فقط یک آیتم وجود دارد */
+    .menu-item.single-item {
+      grid-column: 1 / -1;
+      max-width: 300px;
+      height: 400px;
+      margin: 0 auto;
+    }
+    
+    .menu-item.single-item img {
+      height: 300px;
     }
     
     @keyframes fadeIn {
@@ -372,6 +431,7 @@
       object-fit: cover;
       transition: transform 0.5s;
       border-bottom: 1px solid var(--input-border);
+      flex-shrink: 0;
     }
     
     .menu-item:hover img {
@@ -380,7 +440,11 @@
     
     .menu-content {
       padding: 20px;
-    }
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+        }
     
     .menu-content a {
       font-size: 1.3rem;
@@ -392,18 +456,23 @@
     }
     
     .description {
-      color: var(--text-color);
-      opacity: 0.8;
-      font-size: 0.9rem;
-      margin: 10px 0;
-      line-height: 1.5;
-    }
+        color: var(--text-color);
+        opacity: 0.8;
+        font-size: 0.9rem;
+        margin: 10px 0;
+        line-height: 1.5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        
+        -webkit-box-orient: vertical;
+              }
     
     .price-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 15px;
+      margin-top: auto;
     }
     
     .price-row span {
@@ -452,6 +521,116 @@
       color: #666;
     }
     
+    /* استایل نوبار عمودی */
+    #vertical-navbar {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      background: rgba(58, 37, 18, 0.9);
+      border-radius: 20px;
+      padding: 15px 5px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #vertical-navbar.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    #vertical-navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .vertical-nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      width: 60px;
+    }
+    
+    .vertical-nav-link i {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    
+    .vertical-nav-link span {
+      font-size: 0.7rem;
+    }
+    
+    .vertical-nav-link:hover,
+    .vertical-nav-link.active {
+      background: var(--primary-color);
+      color: white;
+      transform: translateX(-5px);
+    }
+    
+    .vertical-nav-link.order-btn {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, #d4b692 100%);
+      color: var(--text-dark);
+    }
+    
+    /* رسپانسیو برای موبایل */
+    @media (max-width: 992px) {
+      .category-tabs-container {
+        flex-direction: column;
+      }
+      
+      .category-tabs-vertical {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: static;
+        margin-bottom: 20px;
+      }
+      
+      .category-tabs-vertical button {
+        width: auto;
+      }
+      
+      #vertical-navbar {
+        bottom: 20px;
+        top: auto;
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+      }
+      
+      #vertical-navbar ul {
+        flex-direction: row;
+      }
+      
+      .vertical-nav-link {
+        width: auto;
+        flex-direction: row;
+        padding: 8px 12px;
+      }
+      
+      .vertical-nav-link i {
+        margin-bottom: 0;
+        margin-left: 5px;
+      }
+      
+      .vertical-nav-link span {
+        font-size: 0.8rem;
+      }
+    }
+    
     footer {
       background: var(--footer-bg);
       color: white;
@@ -466,8 +645,9 @@
     
     .social-icons a {
       color: white;
+      width: 50px;
       margin: 0 10px;
-      font-size: 1.2rem;
+      font-size: 2.2rem;
       transition: all 0.3s;
     }
     
@@ -476,6 +656,17 @@
       transform: translateY(-3px);
     }
   </style>
+  <!-- لودینگ -->
+<div class="coffee-loader">
+  <div class="cup">
+    <div class="steam steam1"></div>
+    <div class="steam steam2"></div>
+    <div class="steam steam3"></div>
+    <div class="coffee"></div>
+  </div>
+  <p class="loading-text">در حال دم کردن قهوه...</p>
+</div>
+
 </head>
 <body>
 
@@ -494,7 +685,7 @@
   <!-- نوبار جدید و شیک -->
  <nav class="navbar navbar-expand-lg navbar-dark navbar-goldoon ">
   <div class="container-fluid">
-    <a class="navbar-brand navbar-brand-goldoon denj" href="#">denj </a>
+    <a class="navbar-brand navbar-brand-goldoon denj order-btn-goldoon" href="#">denj </a>
     
     <button class="navbar-toggler navbar-toggler-goldoon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarGoldoon">
       <i class="fas fa-bars"></i>
@@ -508,7 +699,7 @@
         <li class="nav-item">
           <a class="nav-link nav-link-goldoon" href="#menu">منو</a>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link nav-link-goldoon dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
             خدمات
           </a>
@@ -517,7 +708,7 @@
             <li><a class="dropdown-item dropdown-item-goldoon" href="#">رزرو میز</a></li>
             <li><a class="dropdown-item dropdown-item-goldoon" href="#">تور کافه</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link nav-link-goldoon" href="#about">درباره ما</a>
         </li>
@@ -528,29 +719,30 @@
       
       <div class="d-flex align-items-center">
         <button id="themeToggle" class="btn btn-link nav-link nav-link-goldoon me-3">
-          <i class="fas fa-moon"></i>
+          <i class="fas fa-moon moon-sun" ></i>
         </button>
         
         <a href="#" class="nav-link nav-link-goldoon cart-icon-goldoon me-3">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="cart-badge-goldoon">3</span>
+          
+          <img class="denj-cofee" src="nody-کافه-رستوران-دنج-1725974647.png" alt="">
         </a>
         
-        <a href="#" class="nav-link nav-link-goldoon order-btn-goldoon">
+        <!-- <a href="#" class="nav-link nav-link-goldoon order-btn-goldoon">
           سفارش آنلاین
-        </a>
+        </a> -->
       </div>
     </div>
   </div>
 </nav>
-<!-- نوبار دوم -->
- <nav id="vertical-navbar" class="vertical-navbar">
+
+<!-- نوبار عمودی -->
+<nav id="vertical-navbar" class="vertical-navbar">
   <ul>
-    <li><a href="#" class="vertical-nav-link"><i class="fas fa-home"></i><span>خانه</span></a></li>
+    <li><a href="#" class="vertical-nav-link active"><i class="fas fa-home"></i><span>خانه</span></a></li>
     <li><a href="#menu" class="vertical-nav-link"><i class="fas fa-utensils"></i><span>منو</span></a></li>
     <li><a href="#about" class="vertical-nav-link"><i class="fas fa-info-circle"></i><span>درباره ما</span></a></li>
     <li><a href="#contact" class="vertical-nav-link"><i class="fas fa-envelope"></i><span>تماس</span></a></li>
-    <li><a href="#" class="vertical-nav-link order-btn"><i class="fas fa-shopping-bag"></i><span>سفارش</span></a></li>
+    <!-- <li><a href="#" class="vertical-nav-link order-btn"><i class="fas fa-shopping-bag"></i><span>سفارش</span></a></li> -->
   </ul>
 </nav>
 
@@ -574,274 +766,287 @@
         <i class="fas fa-search search-icon"></i>
       </div>
       
-      <!-- تب‌های دسته‌بندی -->
-      <div class="category-tabs">
-        <button class="active" data-filter="all">همه موارد</button>
-        <button data-filter="appetizer">پیش غذا</button>
-        <button data-filter="spaghetti">اسپاگتی</button>
-        <button data-filter="dessert">دسر</button>
-        <button data-filter="salad">سالاد</button>
-        <button data-filter="pasta">پاستا</button>
-        <button data-filter="burger">برگر</button>
-        <button data-filter="pizza">پیتزا تنوری</button>
-        <button data-filter="steak">استیک</button>
-        <button data-filter="plate">بشقاب</button>
-        <button data-filter="iranian">ایرانی</button>
-        <button data-filter="ice">آیس</button>
-        <button data-filter="shake">شیک</button>
-        <button data-filter="smoothie">اسموتی</button>
-        <button data-filter="mocktail">ماکتل</button>
+      <!-- فیلتر قیمت -->
+      <div class="price-filter">
+        <h4>فیلتر بر اساس قیمت</h4>
+        <input type="range" id="priceRange" min="50000" max="200000" step="10000" value="200000">
+        <div class="d-flex justify-content-between">
+          <span>50,000 تومان</span>
+          <span id="priceValue">200,000 تومان</span>
+        </div>
+        <button id="applyPriceFilter" class="btn">اعمال فیلتر</button>
       </div>
-
-      <!-- گرید منو -->
-      <div class="menu-grid wow animate__animated animate__fadeInLeft">
-        <!-- پیش غذاها -->
-        <div class="menu-item appetizer">
-          <div class="badge">پرفروش</div>
-          <img src="panirsokhari.jpeg" alt="پیش غذا">
-          <div class="menu-content">
-            <a href="#">پنیر سوخاری</a>
-            <p class="description">پنیر موزارلا با پوشش طلایی و ترد</p>
-            <div class="price-row">
-              <span>85,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="menu-item appetizer wow animate__animated animate__fadeInUp">
-          <img src="sibzamini-tanori.jpg" alt="پیش غذا">
-          <div class="menu-content">
-            <a href="#">سیب زمینی تنوری</a>
-            <p class="description">با سس مخصوص کافه گلدون</p>
-            <div class="price-row">
-              <span>65,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- اسپاگتی -->
-        <div class="menu-item spaghetti wow animate__animated animate__fadeInUp">
-          <div class="badge">ویژه</div>
-          <img src="spageti-blonz.jpg" alt="اسپاگتی">
-          <div class="menu-content">
-            <a href="#">اسپاگتی بولونزه</a>
-            <p class="description">با سس گوشت رازدار</p>
-            <div class="price-row">
-              <span>120,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="menu-item spaghetti wow animate__animated animate__fadeInUp">
-          <img src="spageti-alferedo.jpg" alt="اسپاگتی">
-          <div class="menu-content">
-            <a href="#">اسپاگتی آلفردو</a>
-            <p class="description">با سس سفید و قارچ</p>
-            <div class="price-row">
-              <span>110,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- دسرها -->
-        <div class="menu-item dessert">
-          <div class="badge">جدید</div>
-          <img src="chizcake-totfaramgi.jpg" alt="دسر">
-          <div class="menu-content">
-            <a href="#">چیزکیک توت فرنگی</a>
-            <p class="description">با توت فرنگی تازه</p>
-            <div class="price-row">
-              <span>95,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="menu-item dessert">
-          <img src="panakota-3-rang.jpg" alt="دسر">
-          <div class="menu-content">
-            <a href="#">پاناکوتا</a>
-            <p class="description">با سس تمشک</p>
-            <div class="price-row">
-              <span>85,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- سالادها -->
-        <div class="menu-item salad">
-          <img src="Caesar-salad-1.jpg" alt="سالاد">
-          <div class="menu-content">
-            <a href="#">سالاد سزار</a>
-            <p class="description">با سس مخصوص و نان سوخاری</p>
-            <div class="price-row">
-              <span>90,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="menu-item salad">
-          <div class="badge">سالم</div>
-          <img src="salad-uonani.jpg" alt="سالاد">
-          <div class="menu-content">
-            <a href="#">سالاد یونانی</a>
-            <p class="description">با پنیر فتا و زیتون</p>
-            <div class="price-row">
-              <span>85,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- پاستا -->
-        <div class="menu-item pasta">
-          <img src="pasta.pesto.jpg" alt="پاستا">
-          <div class="menu-content">
-            <a href="#">پاستا پستو</a>
-            <p class="description">با سس ریحان و پنیر پارمزان</p>
-            <div class="price-row">
-              <span>115,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- برگرها -->
-        <div class="menu-item burger">
-          <div class="badge">پرفروش</div>
-          <img src="chili-chiz-berger.jpg" alt="برگر">
-          <div class="menu-content">
-            <a href="#">برگر ویژه</a>
-            <p class="description">با سیب زمینی سرخ کرده</p>
-            <div class="price-row">
-              <span>130,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="menu-item burger">
-          <img src="Baked-Chicken-Burger-featured-min.jpg" alt="برگر">
-          <div class="menu-content">
-            <a href="#">برگر مرغ</a>
-            <p class="description">با سس باربیکیو</p>
-            <div class="price-row">
-              <span>110,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- پیتزا -->
-        <div class="menu-item pizza">
-          <div class="badge">جدید</div>
-          <img src="pitza-makhlout.jpg" alt="پیتزا">
-          <div class="menu-content">
-            <a href="#">پیتزا مخلوط</a>
-            <p class="description">با پپرونی، قارچ و زیتون</p>
-            <div class="price-row">
-              <span>150,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- استیک -->
-        <div class="menu-item steak">
-          <img src="stake-chicken.jpg" alt="استیک">
-          <div class="menu-content">
-            <a href="#">استیک فیله</a>
-            <p class="description">با سس قارچ و سبزیجات</p>
-            <div class="price-row">
-              <span>180,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- بشقاب -->
-        <div class="menu-item plate">
-          <div class="badge">محلی</div>
-          <img src="morgh-sokhari.jpg" alt="بشقاب">
-          <div class="menu-content">
-            <a href="#">مرغ سوخاری</a>
-            <p class="description">با آرد</p>
-            <div class="price-row">
-              <span>160,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
+      
+      <div class="category-tabs-container">
+        <!-- تب‌های عمودی -->
+        <div class="category-tabs-vertical">
+          <button class="active" data-filter="all">همه موارد</button>
+          <button data-filter="appetizer">پیش غذا</button>
+          <button data-filter="spaghetti">اسپاگتی</button>
+          <button data-filter="dessert">دسر</button>
+          <button data-filter="salad">سالاد</button>
+          <button data-filter="pasta">پاستا</button>
+          <button data-filter="burger">برگر</button>
+          <button data-filter="pizza">پیتزا تنوری</button>
+          <button data-filter="steak">استیک</button>
+          <button data-filter="plate">بشقاب</button>
+          <button data-filter="iranian">ایرانی</button>
+          <button data-filter="ice">آیس</button>
+          <button data-filter="shake">شیک</button>
+          <button data-filter="smoothie">اسموتی</button>
+          <button data-filter="mocktail">ماکتل</button>
         </div>
 
-        <!-- ایرانی -->
-        <div class="menu-item iranian">
-          <div class="badge">محلی</div>
-          <img src="koubide-fer.jpg" alt="ایرانی">
-          <div class="menu-content">
-            <a href="#">چلوکباب</a>
-            <p class="description">با زعفران و سماق</p>
-            <div class="price-row">
-              <span>160,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+        <!-- گرید منو -->
+        <div class="menu-grid wow animate__animated animate__fadeInLeft">
+          <!-- پیش غذاها -->
+          <div class="menu-item appetizer">
+            <div class="badge">پرفروش</div>
+            <img src="panirsokhari.jpeg" alt="پیش غذا">
+            <div class="menu-content">
+              <a href="#">پنیر سوخاری</a>
+              <p class="description">پنیر موزارلا با پوشش طلایی و ترد</p>
+              <div class="price-row">
+                <span>85,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- آیس -->
-        <div class="menu-item ice">
-          <img src="vanil.jpg" alt="آیس">
-          <div class="menu-content">
-            <a href="#">آیس شیک وانیلی</a>
-            <p class="description">با خامه تازه</p>
-            <div class="price-row">
-              <span>75,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+          
+          <div class="menu-item appetizer wow animate__animated animate__fadeInUp">
+            <img src="sibzamini-tanori.jpg" alt="پیش غذا">
+            <div class="menu-content">
+              <a href="#">سیب زمینی تنوری</a>
+              <p class="description">با سس مخصوص کافه گلدون</p>
+              <div class="price-row">
+                <span>65,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
-        </div>
+          
+          <!-- اسپاگتی -->
+          <div class="menu-item spaghetti wow animate__animated animate__fadeInUp">
+            <div class="badge">ویژه</div>
+            <img src="spageti-blonz.jpg" alt="اسپاگتی">
+            <div class="menu-content">
+              <a href="#">اسپاگتی بولونزه</a>
+              <p class="description">با سس گوشت رازدار</p>
+              <div class="price-row">
+                <span>120,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-item spaghetti wow animate__animated animate__fadeInUp">
+            <img src="spageti-alferedo.jpg" alt="اسپاگتی">
+            <div class="menu-content">
+              <a href="#">اسپاگتی آلفردو</a>
+              <p class="description">با سس سفید و قارچ</p>
+              <div class="price-row">
+                <span>110,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- دسرها -->
+          <div class="menu-item dessert">
+            <div class="badge">جدید</div>
+            <img src="chizcake-totfaramgi.jpg" alt="دسر">
+            <div class="menu-content">
+              <a href="#">چیزکیک توت فرنگی</a>
+              <p class="description">با توت فرنگی تازه</p>
+              <div class="price-row">
+                <span>95,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-item dessert">
+            <img src="panakota-3-rang.jpg" alt="دسر">
+            <div class="menu-content">
+              <a href="#">پاناکوتا</a>
+              <p class="description">با سس تمشک</p>
+              <div class="price-row">
+                <span>85,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- سالادها -->
+          <div class="menu-item salad">
+            <img src="Caesar-salad-1.jpg" alt="سالاد">
+            <div class="menu-content">
+              <a href="#">سالاد سزار</a>
+              <p class="description">با سس مخصوص و نان سوخاری</p>
+              <div class="price-row">
+                <span>90,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-item salad">
+            <div class="badge">سالم</div>
+            <img src="salad-uonani.jpg" alt="سالاد">
+            <div class="menu-content">
+              <a href="#">سالاد یونانی</a>
+              <p class="description">با پنیر فتا و زیتون</p>
+              <div class="price-row">
+                <span>85,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- پاستا -->
+          <div class="menu-item pasta">
+            <img src="pasta.pesto.jpg" alt="پاستا">
+            <div class="menu-content">
+              <a href="#">پاستا پستو</a>
+              <p class="description">با سس ریحان و پنیر پارمزان</p>
+              <div class="price-row">
+                <span>115,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- برگرها -->
+          <div class="menu-item burger">
+            <div class="badge">پرفروش</div>
+            <img src="chili-chiz-berger.jpg" alt="برگر">
+            <div class="menu-content">
+              <a href="#">برگر ویژه</a>
+              <p class="description">با سیب زمینی سرخ کرده</p>
+              <div class="price-row">
+                <span>130,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-item burger">
+            <img src="Baked-Chicken-Burger-featured-min.jpg" alt="برگر">
+            <div class="menu-content">
+              <a href="#">برگر مرغ</a>
+              <p class="description">با سس باربیکیو</p>
+              <div class="price-row">
+                <span>110,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- پیتزا -->
+          <div class="menu-item pizza">
+            <div class="badge">جدید</div>
+            <img src="pitza-makhlout.jpg" alt="پیتزا">
+            <div class="menu-content">
+              <a href="#">پیتزا مخلوط</a>
+              <p class="description">با پپرونی، قارچ و زیتون</p>
+              <div class="price-row">
+                <span>150,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- استیک -->
+          <div class="menu-item steak">
+            <img src="stake-chicken.jpg" alt="استیک">
+            <div class="menu-content">
+              <a href="#">استیک فیله</a>
+              <p class="description">با سس قارچ و سبزیجات</p>
+              <div class="price-row">
+                <span>180,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- بشقاب -->
+          <div class="menu-item plate">
+            <div class="badge">محلی</div>
+            <img src="morgh-sokhari.jpg" alt="بشقاب">
+            <div class="menu-content">
+              <a href="#">مرغ سوخاری</a>
+              <p class="description">با آرد</p>
+              <div class="price-row">
+                <span>160,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
 
-        <!-- شیک -->
-        <div class="menu-item shake">
-          <img src="vanil.jpg" alt="آیس شیک">
-          <div class="menu-content">
-            <a href="#">آیس شیک وانیلی</a>
-            <p class="description">با خامه تازه</p>
-            <div class="price-row">
-              <span>75,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+          <!-- ایرانی -->
+          <div class="menu-item iranian">
+            <div class="badge">محلی</div>
+            <img src="koubide-fer.jpg" alt="ایرانی">
+            <div class="menu-content">
+              <a href="#">چلوکباب</a>
+              <p class="description">با زعفران و سماق</p>
+              <div class="price-row">
+                <span>160,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- اسموتی -->
-        <div class="menu-item smoothie">
-          <img src="طرز-تهیه-انواع-اسموتی-12-e1647153412714.jpg" alt="اسموتی">
-          <div class="menu-content">
-            <a href="#">اسموتی میوه‌ای</a>
-            <p class="description">ترکیب توت فرنگی و موز</p>
-            <div class="price-row">
-              <span>65,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+          
+          <!-- آیس -->
+          <div class="menu-item ice">
+            <img src="vanil.jpg" alt="آیس">
+            <div class="menu-content">
+              <a href="#">آیس شیک وانیلی</a>
+              <p class="description">با خامه تازه</p>
+              <div class="price-row">
+                <span>75,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- ماکتل -->
-        <div class="menu-item mocktail">
-          <div class="badge">نوشیدنی</div>
-          <img src="موکتل-مخلوط-توت.Jpg" alt="ماکتل">
-          <div class="menu-content">
-            <a href="#">ماکتل تابستانی</a>
-            <p class="description">ترکیب میوه‌های استوایی</p>
-            <div class="price-row">
-              <span>70,000 تومان</span>
-              <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+
+          <!-- شیک -->
+          <div class="menu-item shake">
+            <img src="vanil.jpg" alt="آیس شیک">
+            <div class="menu-content">
+              <a href="#">آیس شیک وانیلی</a>
+              <p class="description">با خامه تازه</p>
+              <div class="price-row">
+                <span>75,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- اسموتی -->
+          <div class="menu-item smoothie">
+            <img src="طرز-تهیه-انواع-اسموتی-12-e1647153412714.jpg" alt="اسموتی">
+            <div class="menu-content">
+              <a href="#">اسموتی میوه‌ای</a>
+              <p class="description">ترکیب توت فرنگی و موز</p>
+              <div class="price-row">
+                <span>65,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- ماکتل -->
+          <div class="menu-item mocktail">
+            <div class="badge">نوشیدنی</div>
+            <img src="موکتل-مخلوط-توت.Jpg" alt="ماکتل">
+            <div class="menu-content">
+              <a href="#">ماکتل تابستانی</a>
+              <p class="description">ترکیب میوه‌های استوایی</p>
+              <div class="price-row">
+                <span>70,000 تومان</span>
+                <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
@@ -850,7 +1055,7 @@
   </section>
 
   <!-- درباره ما -->
-  <section id="about" class="py-5 bg-dark wow animate__animated animate__fadeInUp">
+  <section id="about" class="py-5  wow animate__animated animate__fadeInUp">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
@@ -878,64 +1083,107 @@
   </section>
 
   <!-- تماس با ما -->
-  <section id="contact" class="py-5 wow animate__animated animate__fadeInUp">
-    <div class="container">
-      <h2 class="text-center mb-5 fw-bold">تماس با ما</h2>
-      <div class="row">
-        <div class="col-lg-6 mx-auto">
-          <form class="row g-3">
-            <div class="col-md-6">
-              <input type="text" class="form-control py-3" placeholder="نام شما">
+  <!-- نظرات و فرم ارسال نظر با تم قهوه‌ای -->
+<section class="comments-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- عنوان بخش -->
+                    <h2 class="text-center mb-5 fw-bold text-body">نظرات کاربران</h2>
+                    
+                    <!-- لیست نظرات -->
+                    <div class="comments-list mb-5">
+                        <!-- نظر ۱ -->
+                        <div class="card mb-4 border-0 shadow-sm bg-body-tertiary">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="user-avatar me-3">
+                                        <span>ع</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 text-body">علی محمدی</h5>
+                                        <small class="text-body-secondary">۱۴۰۲/۰۵/۱۵ - ۱۴:۳۰</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0 text-body">طراحی سایت بسیار عالی و حرفه‌ای بود. ممنون از زحمات شما</p>
+                            </div>
+                        </div>
+                        
+                        <!-- نظر ۲ -->
+                        <div class="card mb-4 border-0 shadow-sm bg-body-tertiary">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="user-avatar me-3">
+                                        <span>س</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 text-body">سارا احمدی</h5>
+                                        <small class="text-body-secondary">۱۴۰۲/۰۵/۱۰ - ۰۹:۱۵</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0 text-body">خدمات  خیلی خوبی داشتند</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- فرم ارسال نظر -->
+                    <div class="comment-form">
+                        <div class="card border-0 shadow bg-body-tertiary">
+                            <div class="card-body p-4">
+                                <h4 class="mb-4 text-center text-body">نظر خود را ثبت کنید</h4>
+                                <form>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control py-3 bg-body " placeholder="نام شما">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="email" class="form-control py-3 bg-body" placeholder="ایمیل شما">
+                                        </div>
+                                        <div class="col-12">
+                                            <textarea class="form-control py-3 bg-body" rows="5" placeholder="نظر شما"></textarea>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button class="btn px-5 py-3 bg-brown" type="button">ارسال نظر</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-              <input type="email" class="form-control py-3" placeholder="ایمیل شما">
-            </div>
-            <div class="col-12">
-              <input type="text" class="form-control py-3" placeholder="موضوع">
-            </div>
-            <div class="col-12">
-              <textarea class="form-control py-3" rows="5" placeholder="پیام شما"></textarea>
-            </div>
-            <div class="col-12 text-center">
-              <button class="btn btn-primary px-5 py-3">ارسال پیام</button>
-            </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
   <!-- پاورقی -->
  <footer class="footer-section wow animate__animated animate__fadeInUp" style="background: var(--footer-bg); color: white; overflow: hidden;">
   <div class="container py-5">
     <div class="row g-4">
       <!-- ستون لوگو و توضیحات -->
-      <div class="col-lg-4 col-md-6">
+      <div class="col-lg-3 col-md-6">
         <div class="footer-logo">
           <a href="#" class="d-flex align-items-center mb-3 text-decoration-none">
             <span class="denj fs-3 fw-bold" style="color: var(--secondary-color);">کافه دنج</span>
           </a>
           <p class="footer-description">
-            کافه دنج، فضایی آرام و دلنشین برای تجربه بهترین طعم‌های قهوه و غذاهای بین‌المللی در قلب تهران.
+            کافه دنج، فضایی آرام و دلنشین برای تجربه بهترین طعم‌های قهوه و غذاهای لذیذ در قلب هشتگرد.
           </p>
-          <div class="footer-social mt-4">
+          <div class="footer-social mt-4 d-flex justify-content-center">
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            
           </div>
         </div>
       </div>
 
       <!-- ستون لینک‌های سریع -->
-      <div class="col-lg-2 col-md-6">
+      <div class="col-lg-3 col-md-6">
         <h5 class="footer-title mb-4">دسترسی سریع</h5>
         <ul class="footer-links list-unstyled">
           <li><a href="#" class="footer-link">خانه</a></li>
           <li><a href="#menu" class="footer-link">منو</a></li>
           <li><a href="#about" class="footer-link">درباره ما</a></li>
           <li><a href="#contact" class="footer-link">تماس با ما</a></li>
-          <li><a href="#" class="footer-link">وبلاگ</a></li>
+
         </ul>
       </div>
 
@@ -945,35 +1193,33 @@
         <ul class="footer-hours list-unstyled">
           <li class="d-flex align-items-center mb-2">
             <i class="far fa-clock me-2" style="color: var(--secondary-color);"></i>
-            <span>شنبه تا چهارشنبه: <b>8 صبح - 12 شب</b></span>
+            <span><b>8 صبح تا 12 شب</b></span>
           </li>
-          <li class="d-flex align-items-center mb-2">
-            <i class="far fa-clock me-2" style="color: var(--secondary-color);"></i>
-            <span>پنج‌شنبه و جمعه: <b>10 صبح - 1 بامداد</b></span>
-          </li>
+          
           <li class="d-flex align-items-center">
             <i class="fas fa-coffee me-2" style="color: var(--secondary-color);"></i>
-            <span>همه‌روز باز هستیم!</span>
+            <span>همه‌روز آماده خدمات رسانی هستیم!</span>
           </li>
         </ul>
       </div>
 
       <!-- ستون خبرنامه و نقشه -->
       <div class="col-lg-3 col-md-6">
-        <h5 class="footer-title mb-4">عضویت در خبرنامه</h5>
+        <h5 class="footer-title mb-4"> آدرس و لوکیشن کافه دنج </h5>
         <form class="footer-newsletter">
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="ایمیل شما" required>
-            <button class="btn btn-newsletter" type="submit">
+            <p>هشتگرد / میدان شهدا / نرسیده به اداره پست
+
+همراه با پارکینگ اختصاصی</p>
+            <!-- <button class="btn btn-newsletter" type="submit">
               <i class="far fa-paper-plane"></i>
-            </button>
+            </button> -->
           </div>
-          <small class="text-muted">آخرین تخفیف‌ها و رویدادها را دریافت کنید.</small>
+       
         </form>
 
         <div class="footer-map mt-4">
-          
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.4391287205217!2d50.67467447434334!3d35.96068811457447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8d01c3cd67d8e9%3A0xe8802997fcee0a7f!2z2KjYp9i6INiv2YbYrA!5e0!3m2!1sen!2s!4v1702235487954!5m2!1sen!2s" style="border:0; width: 100%; height: 350px;" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="img-fluid rounded shadow" style="border: 2px solid var(--secondary-color);"></iframe>></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3229.4391287205217!2d50.67467447434334!3d35.96068811457447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8d01c3cd67d8e9%3A0xe8802997fcee0a7f!2z2KjYp9i6INiv2YbYrA!5e0!3m2!1sen!2s!4v1702235487954!5m2!1sen!2s" style="border:0; width: 100%; height: 350px;" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="img-fluid rounded shadow" style="border: 2px solid var(--secondary-color);"></iframe>
         </div>
       </div>
     </div>
@@ -986,12 +1232,7 @@
       <div class="col-md-6 text-center text-md-start">
         <p class="mb-0">© ۱۴۰۳ تمام حقوق برای <strong>کافه دنج</strong> محفوظ است.</p>
       </div>
-      <div class="col-md-6 text-center text-md-end">
-        <ul class="list-inline mb-0">
-          <li class="list-inline-item"><a href="#" class="footer-legal-link">قوانین</a></li>
-          <li class="list-inline-item"><a href="#" class="footer-legal-link">حریم خصوصی</a></li>
-        </ul>
-      </div>
+      
     </div>
   </div>
 
@@ -1003,85 +1244,202 @@
 
   <!-- اسکریپت‌های بوت‌استرپ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const welcomeMessage = document.getElementById('welcome-message');
-
-    // نمایش پیام با fadeIn
-    setTimeout(function () {
-      welcomeMessage.classList.add('active', 'animate__fadeInUp');
-
-      // بعد از 3 ثانیه، با fadeOut محو شود
-      setTimeout(function () {
-        welcomeMessage.classList.remove('animate__fadeInUp');
-        welcomeMessage.classList.add('animate__fadeOut');
-
-        // بعد از پایان انیمیشن، مخفی‌اش کن
-        welcomeMessage.addEventListener('animationend', function hide() {
-          welcomeMessage.classList.remove('active', 'animate__fadeOut');
-          welcomeMessage.removeEventListener('animationend', hide);
-        });
-
-      }, 3000);
-    }, 1000);
-
-    // بستن دستی
-    document.getElementById('close-welcome').addEventListener('click', function () {
-      welcomeMessage.classList.add('animate__fadeOut');
-      welcomeMessage.addEventListener('animationend', function hide() {
-        welcomeMessage.classList.remove('active', 'animate__fadeOut');
-        welcomeMessage.removeEventListener('animationend', hide);
-      });
-    });
-  });
-</script>
-
+  
   <!-- اسکریپت سفارشی -->
   <script>
-    // فیلتر دسته‌بندی
-    const filterButtons = document.querySelectorAll('.category-tabs button');
-    const menuItems = document.querySelectorAll('.menu-item');
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+    // فعال کردن کلاس active در نوبارها
+    document.addEventListener('DOMContentLoaded', function() {
+      // فعال کردن تب‌های عمودی
+      const verticalNavLinks = document.querySelectorAll('#vertical-navbar .vertical-nav-link');
+      const navLinks = document.querySelectorAll('.nav-link-goldoon');
+      
+      // تابع برای تنظیم active بر اساس اسکرول
+      function setActiveOnScroll() {
+        const fromTop = window.scrollY + 100;
         
-        const filter = button.dataset.filter;
-        
-        menuItems.forEach(item => {
-          if (filter === 'all') {
-            item.style.display = 'block';
-          } else {
-            if (item.classList.contains(filter)) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
+        // بررسی هر بخش
+        document.querySelectorAll('section[id]').forEach(section => {
+          if (section.offsetTop <= fromTop && 
+              section.offsetTop + section.offsetHeight > fromTop) {
+            const id = section.getAttribute('id');
+            
+            // به‌روزرسانی نوبار افقی
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+            
+            // به‌روزرسانی نوبار عمودی
+            verticalNavLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+      
+      // رویداد کلیک برای نوبار عمودی
+      verticalNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = this.getAttribute('href');
+          
+          // حذف active از همه
+          verticalNavLinks.forEach(l => l.classList.remove('active'));
+          navLinks.forEach(l => l.classList.remove('active'));
+          
+          // اضافه کردن active به لینک کلیک شده
+          this.classList.add('active');
+          
+          // پیدا کردن لینک متناظر در نوبار افقی
+          navLinks.forEach(l => {
+            if (l.getAttribute('href') === target) {
+              l.classList.add('active');
             }
+          });
+          
+          // اسکرول به بخش مورد نظر
+          document.querySelector(target).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // رویداد کلیک برای نوبار افقی
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            
+            // حذف active از همه
+            navLinks.forEach(l => l.classList.remove('active'));
+            verticalNavLinks.forEach(l => l.classList.remove('active'));
+            
+            // اضافه کردن active به لینک کلیک شده
+            this.classList.add('active');
+            
+            // پیدا کردن لینک متناظر در نوبار عمودی
+            verticalNavLinks.forEach(l => {
+              if (l.getAttribute('href') === target) {
+                l.classList.add('active');
+              }
+            });
+            
+            // اسکرول به بخش مورد نظر
+            document.querySelector(target).scrollIntoView({
+              behavior: 'smooth'
+            });
           }
         });
       });
-    });
-    
-    // جستجو در منو
-    const searchInput = document.getElementById('searchInput');
-    
-    searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.toLowerCase();
-      const activeFilter = document.querySelector('.category-tabs button.active').dataset.filter;
       
-      menuItems.forEach(item => {
-        const title = item.querySelector('a').textContent.toLowerCase();
-        const description = item.querySelector('.description')?.textContent.toLowerCase() || '';
-        const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-        const matchesFilter = activeFilter === 'all' || item.classList.contains(activeFilter);
+      // فعال کردن نوبار عمودی بعد از اسکرول
+      window.addEventListener('scroll', function() {
+        const verticalNav = document.getElementById('vertical-navbar');
+        if (window.scrollY > 300) {
+          verticalNav.classList.add('active');
+        } else {
+          verticalNav.classList.remove('active');
+        }
         
-        item.style.display = matchesSearch && matchesFilter ? 'block' : 'none';
+        // تنظیم active بر اساس اسکرول
+        setActiveOnScroll();
       });
-    });
+      
+      // فیلتر دسته‌بندی
+      const filterButtons = document.querySelectorAll('.category-tabs-vertical button');
+      const menuItems = document.querySelectorAll('.menu-item');
+      
+      filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
     
-    // تغییر تم تاریک/روشن
-    document.addEventListener('DOMContentLoaded', function() {
+    const filter = button.dataset.filter;
+    
+    menuItems.forEach(item => {
+      if (filter === 'all' || item.classList.contains(filter)) {
+        item.style.display = 'block';
+        item.classList.remove('single-item'); // حذف کلاس single-item
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+      
+      // جستجو در منو
+      const searchInput = document.getElementById('searchInput');
+      
+      searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const activeFilter = document.querySelector('.category-tabs-vertical button.active').dataset.filter;
+        let visibleItems = 0;
+        
+        menuItems.forEach(item => {
+          const title = item.querySelector('a').textContent.toLowerCase();
+          const description = item.querySelector('.description')?.textContent.toLowerCase() || '';
+          const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+          const matchesFilter = activeFilter === 'all' || item.classList.contains(activeFilter);
+          
+          if (matchesSearch && matchesFilter) {
+            item.style.display = 'block';
+            visibleItems++;
+          } else {
+            item.style.display = 'none';
+          }
+          
+          
+          // بررسی تعداد آیتم‌های نمایش داده شده
+          if (visibleItems === 1) {
+            item.classList.add('single-item');
+          } else {
+            item.classList.remove('single-item');
+          }
+        });
+      });
+      
+      // فیلتر قیمت
+      const priceRange = document.getElementById('priceRange');
+      const priceValue = document.getElementById('priceValue');
+      const applyPriceFilter = document.getElementById('applyPriceFilter');
+      
+      priceRange.addEventListener('input', function() {
+        priceValue.textContent = new Intl.NumberFormat('fa-IR').format(this.value) + ' تومان';
+      });
+      
+      applyPriceFilter.addEventListener('click', function() {
+        const maxPrice = parseInt(priceRange.value);
+        const activeFilter = document.querySelector('.category-tabs-vertical button.active').dataset.filter;
+        let visibleItems = 0;
+        
+        menuItems.forEach(item => {
+          const priceText = item.querySelector('.price-row span').textContent;
+          const price = parseInt(priceText.replace(/,/g, ''));
+          const matchesFilter = activeFilter === 'all' || item.classList.contains(activeFilter);
+          
+          if (price <= maxPrice && matchesFilter) {
+            item.style.display = 'block';
+            visibleItems++;
+          } else {
+            item.style.display = 'none';
+          }
+          
+          // بررسی تعداد آیتم‌های نمایش داده شده
+          if (visibleItems === 1) {
+            item.classList.add('single-item');
+          } else {
+            item.classList.remove('single-item');
+          }
+        });
+      });
+      
+      // تغییر تم تاریک/روشن
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = themeToggle.querySelector('i');
       
@@ -1109,72 +1467,79 @@
           themeIcon.classList.replace('fa-sun', 'fa-moon');
         }
       });
-    });
-
-    // افکت hover روی کارت‌ها
-    menuItems.forEach(item => {
-      item.addEventListener('mousemove', (e) => {
-        const x = e.offsetX;
-        const y = e.offsetY;
-        item.style.setProperty('--x', `${x}px`);
-        item.style.setProperty('--y', `${y}px`);
+      
+      // پیام خوش‌آمدگویی
+      const welcomeMessage = document.getElementById('welcome-message');
+      
+      // نمایش پیام با fadeIn
+      setTimeout(function() {
+        welcomeMessage.classList.add('active', 'animate__fadeInUp');
+        
+        // بعد از 3 ثانیه، با fadeOut محو شود
+        setTimeout(function() {
+          welcomeMessage.classList.remove('animate__fadeInUp');
+          welcomeMessage.classList.add('animate__fadeOut');
+          
+          // بعد از پایان انیمیشن، مخفی‌اش کن
+          welcomeMessage.addEventListener('animationend', function hide() {
+            welcomeMessage.classList.remove('active', 'animate__fadeOut');
+            welcomeMessage.removeEventListener('animationend', hide);
+          });
+        }, 3000);
+      }, 1000);
+      
+      // بستن دستی
+      document.getElementById('close-welcome').addEventListener('click', function() {
+        welcomeMessage.classList.add('animate__fadeOut');
+        welcomeMessage.addEventListener('animationend', function hide() {
+          welcomeMessage.classList.remove('active', 'animate__fadeOut');
+          welcomeMessage.removeEventListener('animationend', hide);
+        });
       });
+      
+      // نمایش نوبار عمودی بعد از لود کامل
+      setTimeout(() => {
+        document.getElementById('vertical-navbar').classList.add('active');
+      }, 1000);
     });
-  </script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
   
-  <script>
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // ایجاد نمونه از Collapse Bootstrap
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+        toggle: false
+      });
+      
+      // بستن منو
+      bsCollapse.hide();
+    });
+  });
+});
+// بستن خودکار منو هنگام کلیک روی آیتم‌ها
+document.querySelectorAll('.navbar-collapse .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const navbar = document.querySelector('.navbar-collapse');
+    if (window.innerWidth < 992) { // فقط در حالت موبایل
+      const bsCollapse = new bootstrap.Collapse(navbar);
+      bsCollapse.hide();
+    }
+  });
+});
+
+</script>
+<script>
+  window.addEventListener("load", function () {
+    document.querySelector(".coffee-loader").style.display = "none";
+  });
+</script>
+
+<script>
+    
+    // فعال کردن WOW.js
     new WOW().init();
   </script>
-  <script>
-  // نمایش/پنهان کردن دکمه بازگشت به بالا
-  window.addEventListener('scroll', function() {
-    const backToTop = document.querySelector('.back-to-top');
-    if (window.pageYOffset > 300) {
-      backToTop.classList.add('active');
-    } else {
-      backToTop.classList.remove('active');
-    }
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-  const navbarCollapse = document.getElementById('navbarGoldoon');
-  const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-
-  // همه لینک‌های ناوبار که داخل collapse هستند
-  const navLinks = navbarCollapse.querySelectorAll('a.nav-link');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      // اگر منو باز باشد، آن را ببند
-      if (navbarCollapse.classList.contains('show')) {
-        bsCollapse.hide();
-      }
-    });
-  });
-});
-
-</script>
-<script>
-  // کنترل نوبار عمودی
-document.addEventListener('DOMContentLoaded', function() {
-  const verticalNav = document.getElementById('vertical-navbar');
-  const mainNav = document.querySelector('.navbar-goldoon');
-  
-  window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY;
-    const mainNavHeight = mainNav.offsetHeight;
-    
-    if (scrollPosition > mainNavHeight) {
-      verticalNav.classList.add('active');
-    } else {
-      verticalNav.classList.remove('active');
-    }
-  });
-});
-</script>
-
-
-
 </body>
 </html>
