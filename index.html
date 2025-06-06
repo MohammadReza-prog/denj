@@ -373,7 +373,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
-      width: 100p;
+      width: 100%;
+      height: 100;
       flex-grow: 1;
     }
     
@@ -401,17 +402,7 @@
 
 /* حذف کلاس .single-item */
     
-    /* استایل برای وقتی فقط یک آیتم وجود دارد */
-    .menu-item.single-item {
-      grid-column: 1 / -1;
-      max-width: 300px;
-      height: 400px;
-      margin: 0 auto;
-    }
-    
-    .menu-item.single-item img {
-      height: 300px;
-    }
+ */
     
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
@@ -427,7 +418,7 @@
     
     .menu-item img {
       width: 100%;
-      height: 220px;
+      height: 50%;
       object-fit: cover;
       transition: transform 0.5s;
       border-bottom: 1px solid var(--input-border);
@@ -594,13 +585,19 @@
       .category-tabs-vertical {
         width: 100%;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        direction: rtl;
+        -webkit-overflow-scrolling: touch;
+
         position: static;
         margin-bottom: 20px;
       }
       
       .category-tabs-vertical button {
         width: auto;
+        flex: 0 0 auto;
       }
       
       #vertical-navbar {
@@ -713,7 +710,7 @@
           <a class="nav-link nav-link-goldoon" href="#about">درباره ما</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-goldoon" href="#contact">تماس با ما</a>
+          <a class="nav-link nav-link-goldoon" href="#comments">نظرات شما</a>
         </li>
       </ul>
       
@@ -741,7 +738,7 @@
     <li><a href="#" class="vertical-nav-link active"><i class="fas fa-home"></i><span>خانه</span></a></li>
     <li><a href="#menu" class="vertical-nav-link"><i class="fas fa-utensils"></i><span>منو</span></a></li>
     <li><a href="#about" class="vertical-nav-link"><i class="fas fa-info-circle"></i><span>درباره ما</span></a></li>
-    <li><a href="#contact" class="vertical-nav-link"><i class="fas fa-envelope"></i><span>تماس</span></a></li>
+    <li><a href="#comments" class="vertical-nav-link"><i class="fas fa-envelope"></i><span>نظرات</span></a></li>
     <!-- <li><a href="#" class="vertical-nav-link order-btn"><i class="fas fa-shopping-bag"></i><span>سفارش</span></a></li> -->
   </ul>
 </nav>
@@ -1082,14 +1079,14 @@
     </div>
   </section>
 
-  <!-- تماس با ما -->
+
   <!-- نظرات و فرم ارسال نظر با تم قهوه‌ای -->
-<section class="comments-section py-5">
+<section  id="comments" class="comments-section py-5 wow animate__animated animate__fadeInUp ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <!-- عنوان بخش -->
-                    <h2 class="text-center mb-5 fw-bold text-body">نظرات کاربران</h2>
+                    <h2 class="text-center mb-5 fw-bold text-body">نظرات شما</h2>
                     
                     <!-- لیست نظرات -->
                     <div class="comments-list mb-5">
