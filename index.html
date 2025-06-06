@@ -25,7 +25,11 @@
   <style>
     @font-face {
       font-family: Denj;
-      src: url("Ragam.ttf");
+      src: url("font/Ragam.ttf");
+    }
+    @font-face {
+      font-family: iran;
+      src: url("font/Iranian\ Sans.ttf");
     }
     .denj{
       font-family: Denj;
@@ -36,7 +40,7 @@
       --secondary-color: #c4a484;
       --text-dark: #3a2512;
       --text-light: #f8f1e9;
-      --navbar-height: 80px;
+      --navoar-height: 80px;
       --bg-color: #f9f9f9;
       --card-bg: #fff;
       --text-color: #3a2512;
@@ -257,12 +261,12 @@
     
     body {
       background: var(--bg-color);
-      font-family: "Dana", "Tahoma", sans-serif;
+      font-family: iran;
       color: var(--text-color);
       padding-top: var(--navbar-height);
       transition: background-color 0.5s ease, color 0.5s ease;
     }
-    
+    _
     .search-container {
       max-width: 1200px;
       margin: 30px auto 20px;
@@ -270,6 +274,7 @@
     }
     
     .search-input {
+      position: relative;
       width: 100%;
       padding: 15px 50px 15px 20px;
       border: 2px solid var(--input-border);
@@ -342,7 +347,7 @@
     .price-filter {
       background: var(--card-bg);
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 50px;
       margin: 20px auto;
       max-width: 800px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -674,7 +679,7 @@
         <i class="fas fa-coffee"></i>
       </div>
       <h3 class="welcome-title">به کافه دنج خوش آمدید!</h3>
-      <p class="welcome-text">امروز می‌تونید از تخفیف ویژه <strong>۲۰٪</strong> روی تمام منو استفاده کنید.</p>
+      <!-- <p class="welcome-text">امروز می‌تونید از تخفیف ویژه <strong>۲۰٪</strong> روی تمام منو استفاده کنید.</p> -->
       <a href="#menu" class="welcome-btn">مشاهده منو</a>
     </div>
   </div>
@@ -721,7 +726,7 @@
         
         <a href="#" class="nav-link nav-link-goldoon cart-icon-goldoon me-3">
           
-          <img class="denj-cofee" src="nody-کافه-رستوران-دنج-1725974647.png" alt="">
+          <img class="denj-cofee" src="picture/nody-کافه-رستوران-دنج-1725974647.png" alt="">
         </a>
         
         <!-- <a href="#" class="nav-link nav-link-goldoon order-btn-goldoon">
@@ -738,13 +743,13 @@
     <li><a href="#" class="vertical-nav-link active"><i class="fas fa-home"></i><span>خانه</span></a></li>
     <li><a href="#menu" class="vertical-nav-link"><i class="fas fa-utensils"></i><span>منو</span></a></li>
     <li><a href="#about" class="vertical-nav-link"><i class="fas fa-info-circle"></i><span>درباره ما</span></a></li>
-    <li><a href="#comments" class="vertical-nav-link"><i class="fas fa-envelope"></i><span>نظرات</span></a></li>
+    <li><a href="#comments" class="vertical-nav-link"><i class="fas fa-comment"></i><span>نظرات</span></a></li>
     <!-- <li><a href="#" class="vertical-nav-link order-btn"><i class="fas fa-shopping-bag"></i><span>سفارش</span></a></li> -->
   </ul>
 </nav>
 
   <!-- هدر -->
-  <header class="hero text-white d-flex align-items-center justify-content-center animate__animated animate__fadeIn" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bg.jpg'); height: 60vh; background-size: cover; background-position: center;">
+  <header class="hero text-white d-flex align-items-center justify-content-center animate__animated animate__fadeIn" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('picture/bg.jpg'); height: 60vh; background-size: cover; background-position: center;">
     <div class="text-center">
       <h1 class="display-4 fw-bold mb-4">به کافه‌ دنج خوش آمدید</h1>
       <p class="lead fs-4">تجربه‌ای متفاوت از طعم‌های اصیل</p>
@@ -759,8 +764,11 @@
       
       <!-- جستجو -->
       <div class="search-container">
+      
         <input type="text" id="searchInput" class="search-input" placeholder="جستجوی نوشیدنی یا غذا...">
-        <i class="fas fa-search search-icon"></i>
+        
+        
+        
       </div>
       
       <!-- فیلتر قیمت -->
@@ -795,11 +803,11 @@
         </div>
 
         <!-- گرید منو -->
-        <div class="menu-grid wow animate__animated animate__fadeInLeft">
+        <div class="menu-grid">
           <!-- پیش غذاها -->
           <div class="menu-item appetizer">
             <div class="badge">پرفروش</div>
-            <img src="panirsokhari.jpeg" alt="پیش غذا">
+            <img src="picture/panirsokhari.jpeg" alt="پیش غذا">
             <div class="menu-content">
               <a href="#">پنیر سوخاری</a>
               <p class="description">پنیر موزارلا با پوشش طلایی و ترد</p>
@@ -811,7 +819,7 @@
           </div>
           
           <div class="menu-item appetizer wow animate__animated animate__fadeInUp">
-            <img src="sibzamini-tanori.jpg" alt="پیش غذا">
+            <img src="picture/sibzamini-tanori.jpg" alt="پیش غذا">
             <div class="menu-content">
               <a href="#">سیب زمینی تنوری</a>
               <p class="description">با سس مخصوص کافه گلدون</p>
@@ -825,7 +833,7 @@
           <!-- اسپاگتی -->
           <div class="menu-item spaghetti wow animate__animated animate__fadeInUp">
             <div class="badge">ویژه</div>
-            <img src="spageti-blonz.jpg" alt="اسپاگتی">
+            <img src="picture/spageti-blonz.jpg" alt="اسپاگتی">
             <div class="menu-content">
               <a href="#">اسپاگتی بولونزه</a>
               <p class="description">با سس گوشت رازدار</p>
@@ -837,7 +845,7 @@
           </div>
           
           <div class="menu-item spaghetti wow animate__animated animate__fadeInUp">
-            <img src="spageti-alferedo.jpg" alt="اسپاگتی">
+            <img src="picture/spageti-alferedo.jpg" alt="اسپاگتی">
             <div class="menu-content">
               <a href="#">اسپاگتی آلفردو</a>
               <p class="description">با سس سفید و قارچ</p>
@@ -849,9 +857,9 @@
           </div>
           
           <!-- دسرها -->
-          <div class="menu-item dessert">
+          <div class="menu-item dessert wow animate__animated animate__fadeInUp">
             <div class="badge">جدید</div>
-            <img src="chizcake-totfaramgi.jpg" alt="دسر">
+            <img src="picture/chizcake-totfaramgi.jpg" alt="دسر">
             <div class="menu-content">
               <a href="#">چیزکیک توت فرنگی</a>
               <p class="description">با توت فرنگی تازه</p>
@@ -862,8 +870,8 @@
             </div>
           </div>
           
-          <div class="menu-item dessert">
-            <img src="panakota-3-rang.jpg" alt="دسر">
+          <div class="menu-item dessert wow animate__animated animate__fadeInUp">
+            <img src="picture/panakota-3-rang.jpg" alt="دسر">
             <div class="menu-content">
               <a href="#">پاناکوتا</a>
               <p class="description">با سس تمشک</p>
@@ -875,8 +883,8 @@
           </div>
           
           <!-- سالادها -->
-          <div class="menu-item salad">
-            <img src="Caesar-salad-1.jpg" alt="سالاد">
+          <div class="menu-item salad wow animate__animated animate__fadeInUp">
+            <img src="picture/Caesar-salad-1.jpg" alt="سالاد">
             <div class="menu-content">
               <a href="#">سالاد سزار</a>
               <p class="description">با سس مخصوص و نان سوخاری</p>
@@ -887,9 +895,9 @@
             </div>
           </div>
           
-          <div class="menu-item salad">
+          <div class="menu-item salad wow animate__animated animate__fadeInUp">
             <div class="badge">سالم</div>
-            <img src="salad-uonani.jpg" alt="سالاد">
+            <img src="picture/salad-uonani.jpg" alt="سالاد">
             <div class="menu-content">
               <a href="#">سالاد یونانی</a>
               <p class="description">با پنیر فتا و زیتون</p>
@@ -901,8 +909,8 @@
           </div>
           
           <!-- پاستا -->
-          <div class="menu-item pasta">
-            <img src="pasta.pesto.jpg" alt="پاستا">
+          <div class="menu-item pasta wow animate__animated animate__fadeInUp">
+            <img src="picture/pasta.pesto.jpg" alt="پاستا">
             <div class="menu-content">
               <a href="#">پاستا پستو</a>
               <p class="description">با سس ریحان و پنیر پارمزان</p>
@@ -914,9 +922,9 @@
           </div>
           
           <!-- برگرها -->
-          <div class="menu-item burger">
+          <div class="menu-item burger wow animate__animated animate__fadeInUp">
             <div class="badge">پرفروش</div>
-            <img src="chili-chiz-berger.jpg" alt="برگر">
+            <img src="picture/chili-chiz-berger.jpg" alt="برگر">
             <div class="menu-content">
               <a href="#">برگر ویژه</a>
               <p class="description">با سیب زمینی سرخ کرده</p>
@@ -927,8 +935,8 @@
             </div>
           </div>
           
-          <div class="menu-item burger">
-            <img src="Baked-Chicken-Burger-featured-min.jpg" alt="برگر">
+          <div class="menu-item burger wow animate__animated animate__fadeInUp">
+            <img src="picture/Baked-Chicken-Burger-featured-min.jpg" alt="برگر">
             <div class="menu-content">
               <a href="#">برگر مرغ</a>
               <p class="description">با سس باربیکیو</p>
@@ -940,9 +948,9 @@
           </div>
           
           <!-- پیتزا -->
-          <div class="menu-item pizza">
+          <div class="menu-item pizza wow animate__animated animate__fadeInUp">
             <div class="badge">جدید</div>
-            <img src="pitza-makhlout.jpg" alt="پیتزا">
+            <img src="picture/pitza-makhlout.jpg" alt="پیتزا">
             <div class="menu-content">
               <a href="#">پیتزا مخلوط</a>
               <p class="description">با پپرونی، قارچ و زیتون</p>
@@ -954,8 +962,8 @@
           </div>
           
           <!-- استیک -->
-          <div class="menu-item steak">
-            <img src="stake-chicken.jpg" alt="استیک">
+          <div class="menu-item steak wow animate__animated animate__fadeInUp">
+            <img src="picture/stake-chicken.jpg" alt="استیک">
             <div class="menu-content">
               <a href="#">استیک فیله</a>
               <p class="description">با سس قارچ و سبزیجات</p>
@@ -967,9 +975,9 @@
           </div>
           
           <!-- بشقاب -->
-          <div class="menu-item plate">
+          <div class="menu-item plate wow animate__animated animate__fadeInUp">
             <div class="badge">محلی</div>
-            <img src="morgh-sokhari.jpg" alt="بشقاب">
+            <img src="picture/morgh-sokhari.jpg" alt="بشقاب">
             <div class="menu-content">
               <a href="#">مرغ سوخاری</a>
               <p class="description">با آرد</p>
@@ -981,9 +989,9 @@
           </div>
 
           <!-- ایرانی -->
-          <div class="menu-item iranian">
+          <div class="menu-item iranian wow animate__animated animate__fadeInUp">
             <div class="badge">محلی</div>
-            <img src="koubide-fer.jpg" alt="ایرانی">
+            <img src="picture/koubide-fer.jpg" alt="ایرانی">
             <div class="menu-content">
               <a href="#">چلوکباب</a>
               <p class="description">با زعفران و سماق</p>
@@ -995,8 +1003,8 @@
           </div>
           
           <!-- آیس -->
-          <div class="menu-item ice">
-            <img src="vanil.jpg" alt="آیس">
+          <div class="menu-item ice wow animate__animated animate__fadeInUp">
+            <img src="picture/vanil.jpg" alt="آیس">
             <div class="menu-content">
               <a href="#">آیس شیک وانیلی</a>
               <p class="description">با خامه تازه</p>
@@ -1008,8 +1016,8 @@
           </div>
 
           <!-- شیک -->
-          <div class="menu-item shake">
-            <img src="vanil.jpg" alt="آیس شیک">
+          <div class="menu-item shake wow animate__animated animate__fadeInUp">
+            <img src="picture/vanil.jpg" alt="آیس شیک">
             <div class="menu-content">
               <a href="#">آیس شیک وانیلی</a>
               <p class="description">با خامه تازه</p>
@@ -1021,8 +1029,8 @@
           </div>
           
           <!-- اسموتی -->
-          <div class="menu-item smoothie">
-            <img src="طرز-تهیه-انواع-اسموتی-12-e1647153412714.jpg" alt="اسموتی">
+          <div class="menu-item smoothie wow animate__animated animate__fadeInUp">
+            <img src="picture/smothee.jpg" alt="اسموتی">
             <div class="menu-content">
               <a href="#">اسموتی میوه‌ای</a>
               <p class="description">ترکیب توت فرنگی و موز</p>
@@ -1034,9 +1042,9 @@
           </div>
           
           <!-- ماکتل -->
-          <div class="menu-item mocktail">
+          <div class="menu-item mocktail wow animate__animated animate__fadeInUp ">
             <div class="badge">نوشیدنی</div>
-            <img src="موکتل-مخلوط-توت.Jpg" alt="ماکتل">
+            <img src="picture/muctel.Jpg" alt="ماکتل">
             <div class="menu-content">
               <a href="#">ماکتل تابستانی</a>
               <p class="description">ترکیب میوه‌های استوایی</p>
@@ -1052,12 +1060,12 @@
   </section>
 
   <!-- درباره ما -->
-  <section id="about" class="py-5  wow animate__animated animate__fadeInUp">
+  <section id="about" class="py-5  wow animate__animated animate__fadeInUp modiriat">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
           <h2 class="fw-bold mb-4">درباره کافه دنج</h2>
-          <p class="lead">
+          <p class="lead ">
             از سال ۱۳۹۵ میزبان لحظات خوش شما در فضایی آرام و دلنشین هستیم.
           </p>
           <p>با مدیریت اقای ابراهیم افشار
@@ -1073,7 +1081,7 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <img src="Modir.jpg" alt="فضای داخلی کافه" class="img-fluid rounded shadow">
+          <img src="picture/Modir.jpg" alt="فضای داخلی کافه" class="img-fluid rounded shadow">
         </div>
       </div>
     </div>
@@ -1166,7 +1174,7 @@
             کافه دنج، فضایی آرام و دلنشین برای تجربه بهترین طعم‌های قهوه و غذاهای لذیذ در قلب هشتگرد.
           </p>
           <div class="footer-social mt-4 d-flex justify-content-center">
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/denj.cafee.restaurant" class="social-icon"><i class="fab fa-instagram"></i></a>
             
           </div>
         </div>
